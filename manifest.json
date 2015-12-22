@@ -2,15 +2,22 @@
   "manifest_version": 2,
   "name": "qbta",
   "description": "Qiita stock and hatena bookmark at the same time",
-  "version": "0.0.1",
+  "version": "0.0.3",
+  "options_page": "./html/options.html",
   "permissions": [
+    "storage",
     "tabs",
     "http://qiita.com/*"
   ],
   "content_scripts": [
     {
       "matches": ["http://qiita.com/*"],
-      "js": ["myscript.js"],
+      "js": ["./js/qiita.js"],
+      "run_at": "document_end"
+    },
+    {
+      "matches": ["http://b.hatena.ne.jp/add*"],
+      "js": ["./js/hatena.js"],
       "run_at": "document_end"
     }
   ]
