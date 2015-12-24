@@ -25,7 +25,9 @@ function patch(){
 }
 
 function patch2(){
-  document.getElementById('submit-button').click();
+  if (addComment) {
+    document.getElementById('submit-button').click();
+  }
 }
 
 var script = document.createElement('script');
